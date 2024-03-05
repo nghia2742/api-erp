@@ -142,7 +142,6 @@ def predictRateInTheFuture(model_name, model,data, lookback = 30, future_days = 
         # print(prediction)
         predicted_values.append(round(float(prediction.flatten()[0]),2))
         last_input_data = np.roll(last_input_data, -1, axis=0)
-    print(predicted_values)
     predictions = pd.DataFrame(list(zip(forecasting_dates, predicted_values)), columns=['Date','Predicted'])
     print("Predict exchange rate with",model_name, f'in {future_days} days')
     print(predictions)
